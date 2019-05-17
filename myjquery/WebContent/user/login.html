@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+
+/*
+$(document).ready(function(){
+	
+	var $loginBtnObj = $("#loginBtn");
+	//loginBtnObj.click(function () {
+	var $LoginformObj = $("#loginform");
+		
+	$LoginformObj.submit(function() {
+			
+	});
+	
+});
+*/
+
+$(document).ready(function(){
+	
+	var $loginFormObj = $("#loginform");
+	$loginFormObj.submit(login);
+	var $registerBtnObj = $("#moveRegisterBtn");
+	
+	$registerBtnObj.click(function (){
+		$("nav>ul>li>a[href='user/member.html']").trigger("click"); 
+		// trigger는 강제로 이벤트를 발생시켜라. semantic.html에서 click이벤트가 있으므로 거기있는것을 씀??
+	});
+	
+
+});
+
+$(document).ready(function(){
+	console.log("test0");
+
+	//$("#loginBtn").click(function () {
+	$("#loginform").submit(function(){	
+		alert("test1");
+
+			$.ajax({
+				url:'/myjquery/login',
+				method:'post',
+				data:$('form').serialize(), // jqery만 사용하는 메소드
+				//'id='+$('input[name=id]').val()+'&pwd='+$('input[name=pwd]').val(),이렇게 만들어도됨.
+				//{id:$('input[name=id]').val(), pwd:$('input[name=pwd]').val()},이렇게 만들어도됨.
+				success:function(result){ 
+					alert("test2");
+				
+					if (result.trim() == '1') {
+						//location.href="ProductListServlet" 
+						//alert(result.trim());
+						//result.html();
+						location.href="semantic.jsp";
+						// /붙이면 클라이언트 uri가 웹컨텐트페스부터 말하는것임. 서버 사이드에서 /붙이면 웹컨텐트페스 안쪽을 말하는것임.
+					}else {
+						alert(result.trim());
+						System.out.pritln("ㄴ아런아러ㅏㄴㅇ러");
+					}
+				},
+				
+				error:function( jqXHR, textStatus, errorThrown){
+					alert(errorThrown);
+				}
+				
+			});
+			return false;
+		});
+	});
+
+/*
+function login() {
+	if(document.getElementById("id").value == "") {
+		alert("아이디 입력!!!!");
+		return;
+	} else if(document.getElementById("pass").value == "") {
+		alert("비밀번호 입력!!!!");
+		return;
+	} else {
+		document.getElementById("loginform").action = "/memberservlet/login";
+		document.getElementById("loginform").submit();
+	}
+}
+*/
+</script>
+
+<div class="container" align="center">
+	<div class="col-lg-6" align="center">
+		<h2>로그인</h2>
+		<form id="loginform" method="post">
+			<div class="form-group" align="left">
+				<label for="">아이디</label>
+				<input type="text" class="form-control" id="id" name="id" required="required" placeholder="">
+			</div>
+			<div class="form-group" align="left">
+				<label for="">비밀번호</label>
+				<input type="password" class="form-control" id="pass" name="pass" required="required" placeholder="">
+			</div>
+		</form>
+		<div align="center">
+			<button class="btn btn-warning" form="loginform" id="loginBtn" >로그인</button> <!-- onclick="javascript:login();" -->
+			<button class="btn btn-primary" id="moveRegisterBtn">회원가입</button>
+		</div>
+	</div>
+</div>
+
