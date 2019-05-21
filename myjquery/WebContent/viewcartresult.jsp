@@ -38,27 +38,35 @@ $(function(){
 		}); */
 		return false;
 	});
-	var $btAddOrder = $("div.viewcartresult>table tr>td>button.addorder");
+	var $btAddOrder = $("div.viewcartresult>table tr>td>button.vieworder");
 	$btAddOrder.click(function(){
 
 		alert("주문하기 클릭!");
-		/* $.ajax({
+		$.ajax({
 			url:"addorder",
 			method:"get",
-			success:function(result){
+				success:function(result){
+				if (result.trim() == '-1') {
+					alert("주문실패");
+				} else if (result.trim() == '1') {
+					alert("주문성공");
+					$("nav>ul>li>a[href=vieworder]").trigger("click");
+					//location.href="vieworder";
+					return false;
+				}	
 			}
-		}); */
+		});
 		return false;
 	});
 });
 </script>
 <div class="viewcartresult">
- <h3>장바구니 내용</h3>
+<h3>장바구니 내용</h3>
 <%
 Map<Product,Integer> rc = (Map)request.getAttribute("rcart");
   Set<Product> keys = rc.keySet();
 %>    
- <table>
+<table>
    <tr>
      <th>상품번호</th><th>상품명</th><th>상품가격</th><th>수량</th>     
    </tr>
@@ -77,7 +85,7 @@ Map<Product,Integer> rc = (Map)request.getAttribute("rcart");
        <button style="margin:10px;" class="removecart">장바구니 비우기</button>
    <%if(session.getAttribute("loginInfo") != null){ //로그인한 경우만 주문하기 버튼보여주기
    %>
-       <button style="margin:10px;"class="addorder">주문하기</button>
+       <button style="margin:10px;"class="vieworder">주문하기</button>
    <%}%>       
      </td>
    </tr>

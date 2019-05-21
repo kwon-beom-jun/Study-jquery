@@ -18,13 +18,14 @@ public class ViewCartServlet extends HttpServlet {
 	private ProductService service;
 	
     public ViewCartServlet() {
-        super();
 
         service = new ProductService();
         
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    	
+    	System.out.println("ViewCartServlet으로 들오옴~");
     	
 //    	1)세션얻기
     	HttpSession session = request.getSession();
@@ -43,18 +44,13 @@ public class ViewCartServlet extends HttpServlet {
 				} catch (Exception e) {
 
 				}
-				
+			}
 				request.setAttribute("rcart", rc);
-				String path = "/viewcartesult";
+				String path = "/viewcartresult.jsp";
 				RequestDispatcher rd = request.getRequestDispatcher(path);
 				rd.forward(request, response);
 				
-			}
-		}
+
+    	}
     }
-
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doGet(request, response);
-	}
-
 }

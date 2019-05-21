@@ -31,7 +31,7 @@ public class productinfo extends HttpServlet {
 		
 
 		Product product = productService.findByNo(no);
-		System.out.println(product.getProd_name());
+//		System.out.println(product.getProd_name());
 		request.setAttribute("product", product);
 		String path = "productdetail.jsp";
 		

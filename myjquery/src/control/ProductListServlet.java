@@ -24,13 +24,13 @@ public class ProductListServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		System.out.println("들어옴");
+		System.out.println("ProductListServlet으로 들어옴");
 		request.setCharacterEncoding("UTF-8");
 
 		ProductService productService = new ProductService();
 		List<Product> list = productService.findAll();
 		
-		System.out.println(list);
+//		System.out.println(list);
 		
 //		private String prod_no;
 //		private String prod_name;

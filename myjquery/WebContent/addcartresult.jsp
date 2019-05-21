@@ -22,7 +22,7 @@ Product p = (Product)request.getAttribute("chartproduct");
 			alert("장바구니 보기를 클릭하셨습니다..");
 			//메뉴중 상품목록 메뉴 찾기
 			//강제 클릭이벤트 발생시키기.
-			$("nav>ul>li>a[href=ProductListServlet]").trigger("click");
+			$("nav>ul>li>a[href=ViewCartServlet]").trigger("click");
 			return false;
 		});
 	});

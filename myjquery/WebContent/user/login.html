@@ -36,11 +36,11 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
-	console.log("test0");
+	//console.log("test0");
 
 	//$("#loginBtn").click(function () {
 	$("#loginform").submit(function(){	
-		alert("test1");
+		//alert("test1");
 
 			$.ajax({
 				url:'/myjquery/login',
@@ -49,7 +49,7 @@ $(document).ready(function(){
 				//'id='+$('input[name=id]').val()+'&pwd='+$('input[name=pwd]').val(),이렇게 만들어도됨.
 				//{id:$('input[name=id]').val(), pwd:$('input[name=pwd]').val()},이렇게 만들어도됨.
 				success:function(result){ 
-					alert("test2");
+					//alert("test2");
 				
 					if (result.trim() == '1') {
 						//location.href="ProductListServlet" 
@@ -59,7 +59,7 @@ $(document).ready(function(){
 						// /붙이면 클라이언트 uri가 웹컨텐트페스부터 말하는것임. 서버 사이드에서 /붙이면 웹컨텐트페스 안쪽을 말하는것임.
 					}else {
 						alert(result.trim());
-						System.out.pritln("ㄴ아런아러ㅏㄴㅇ러");
+						//System.out.pritln("ㄴ아런아러ㅏㄴㅇ러");
 					}
 				},
 				

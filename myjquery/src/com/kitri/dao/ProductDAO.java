@@ -108,10 +108,11 @@ public class ProductDAO {
 			conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.14.30:1521:orcl","kitri","kitri");
 			
 			// SQL송신
-			String selectAll = "SELECT cate_no, cate_name, prod_no, prod_name, prod_price, prod_detail \r\n" + 
-					"FROM product p join product_category pc \r\n" + 
-					"ON p.prod_cate = pc.cate_no \r\n" + 
-					"ORDER by cate_no, prod_name";
+			String selectAll = "SELECT cate_no, cate_name," + 
+					" prod_no, prod_name, prod_price, prod_detail" + 
+					" FROM product p JOIN product_category pc " + 
+					" ON  p.prod_cate=pc.cate_no " + 
+					" ORDER BY cate_no, prod_name";
 			pstmt = conn.prepareStatement(selectAll);
 			// 결과 수신
 			rs = pstmt.executeQuery();

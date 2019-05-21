@@ -9,7 +9,10 @@
 		<%} else{ //로그인 했을때
 		%>
 		<li><a href="logout">로그아웃</a></li><br>
+		<li><a href="vieworder" >주문내역 보기</li><br>
 		<%} %>
 		<li><a href="ProductListServlet">상품목록</a></li><br>
-		<li><a href="viewcart">장바구니보기</a><br>
+		<li><a href="ViewCartServlet">장바구니보기</a><br>
+
+
 	</ul>
