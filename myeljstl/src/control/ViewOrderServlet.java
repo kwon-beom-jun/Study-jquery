@@ -27,10 +27,8 @@ public class ViewOrderServlet extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		String id = (String)session.getAttribute("loginInfo");
-		
 		List<OrderInfo> orderList = service.findById(id);
 		request.setAttribute("orderlist", orderList);
-		
 		String path = "/vieworderresult.jsp";
 		RequestDispatcher rd = request.getRequestDispatcher(path);
 		rd.forward(request, response);

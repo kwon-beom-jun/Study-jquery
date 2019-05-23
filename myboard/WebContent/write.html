@@ -1,0 +1,28 @@
+<script>
+$(function(){
+	$("div.boardwrite>form").submit(function(){
+		$.ajax({
+			url:'writeboard',
+			method:'post',
+			data:$(this).serialize(),
+			success:function(result){
+				alert(result.trim());
+				
+			}
+		});
+		return false;
+	});
+});
+</script>
+<div class="boardwrite">
+  <h4>글쓰기</h4>
+  <!-- 빈공간을 누르면 자동완성 기능 끄기.  -->
+  <form autocomplete="off">
+    <label>제목</label><input name="subject"><br>
+    <label>작성자</label><input name="writer"><br>
+    <label>비밀번호</label><input type="password" name="password"><br>
+    <label>내용</label>
+    <textarea name="contents"></textarea>
+    <button>글쓰기</button>
+  </form>
+</div>
