@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>JavaScript Shield UI Demos</title>
+    <link id="themecss" rel="stylesheet" type="text/css" href="//www.shieldui.com/shared/components/latest/css/light/all.min.css" />
+    <script type="text/javascript" src="//www.shieldui.com/shared/components/latest/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="//www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+</head>
+<body class="theme-light">
+    <div id="chart"></div>
+    <script type="text/javascript">
+        $(function () {
+            $("#chart").shieldChart({
+                theme: "light",
+                primaryHeader: {
+                    text: "Internet usage statistics"
+                },
+                exportOptions: {
+                    image: false,
+                    print: false
+                },
+                axisX: {
+                    categoricalValues: ["2019", "2018", "2017", "2016", "2015", "2014"]
+                },
+                axisY: {
+                    title: {
+                        text: "Visitor statistics"
+                    }
+                },
+                dataSeries: [{
+                    seriesType: "bar",
+                    collectionAlias: "10대",
+                    data: [565000, 630400, 743000, 910200, 1170200, 1383000]
+                }, {
+                    seriesType: "bar",
+                    collectionAlias: "20대",
+                    data: [152000, 234000, 123000, 348000, 167000, 283000]
+                },{
+                    seriesType: "bar",
+                    collectionAlias: "30대",
+                    data: [152000, 234000, 123000, 348000, 167000, 283000]
+                },{
+                    seriesType: "bar",
+                    collectionAlias: "40대",
+                    data: [152000, 234000, 123000, 348000, 167000, 283000]
+                },{
+                    seriesType: "bar",
+                    collectionAlias: "50대 이상",
+                    data: [152000, 234000, 123000, 348000, 167000, 283000]
+                }]
+            });
+        });
+    </script>
+</body>
+</html>

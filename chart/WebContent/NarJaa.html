@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>JavaScript Shield UI Demos</title>
+    <link id="themecss" rel="stylesheet" type="text/css" href="//www.shieldui.com/shared/components/latest/css/light/all.min.css" />
+    <script type="text/javascript" src="//www.shieldui.com/shared/components/latest/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="//www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+</head>
+<body class="theme-light">
+<div class="container">
+    <div class="top"></div>
+    <div id="field">
+        <span style="color:#D4D4D4; font-weight:900; font-size:17px; opacity:1;">Activation Date:</span><br />
+        <input id="datepicker"/>        
+    </div>
+</div>
+<script type="text/javascript">
+    jQuery(function ($) {
+        $("#datepicker").shieldDatePicker();
+    });
+</script>
+<style>
+    .container {
+        background-image: url("/Content/img/datepicker/s4.png");
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 740px;
+        text-align: center;
+    }
+    .top {
+        padding-top: 290px;
+    }
+    #field {
+        width: 200px;                
+        line-height: 37px;        
+        text-align: center;
+        background-color: white;
+        opacity:0.83;
+        padding: 7px;
+        margin: 0 auto;
+    }
+</style>
+</body>
+</html>
