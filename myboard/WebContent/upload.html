@@ -1,0 +1,55 @@
+<script>
+$(function(){	
+	$("button").click(function(){
+		var form = $('form')[0];
+		var formData = new FormData(form); // 자바스크립트의 객체
+		console.log(formData.get('a'));
+		console.log(formData.get('f1'));
+		$.ajax({
+			url:'upload',
+			method:'post',
+			processData: false,
+            contentType: false,
+            // 파일은 다른방식과는 다르게 해야뎀.
+			data:formData,
+			success:function(result){
+				alert("파일업로드 OK");
+				$("section").html(result.trim());				
+			}
+		});
+		return false;
+	});
+});
+</script>
+
+<script>
+$(function(){	
+	$("div>button").click(function(){
+		var form = $('form')[0];
+		var formData = new FormData(form); // 자바스크립트의 객체
+		$.ajax({
+			url:'upload',
+			method:'post',
+			processData: false,
+            contentType: false,
+            // 파일은 다른방식과는 다르게 해야뎀.
+			data:formData,
+			success:function(result){
+				alert("파일업로드 OK");
+				$("section").html(result.trim());				
+			}
+		});
+		return false;
+	});
+});
+</script>
+<form method="post" enctype="multipart/form-data" action="upload">
+<!-- 
+파일 업로드는 oreilly사에서 제공하는 자르파일이나 아파치톰켓등 여러가지 방법이 있음.
+http://www.servlets.com/cos/
+-->
+  <input type="text" name="a" value="aaa">
+  <input type="file" name="f1">  
+</form>
+<button>업로드</button>
+<div><button>목록</button></div>

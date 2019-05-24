@@ -1,0 +1,115 @@
+membermvc (- ����)
+	
+	src
+		- com.kitri.admin.controller
+			AdminController.java(Servlet : /admin)
+		
+		- com.kitri.admin.model
+		
+		- com.kitri.admin.model.dao
+			AdminDao.java (I)
+			AdminDaoImpl.java
+		
+		- com.kitri.admin.model.service
+			AdminService.java (I)
+			AdminserviceImpl.java
+		
+--------------------------------------------------------
+		- com.kitri.member.controller
+			MemberController.java(Servlet : /user)
+		
+		- com.kitri.member.model
+			MemberDto.java
+			MemberDetailDto.java
+			ZipcodeDto.java
+		
+		- com.kitri.member.model.dao
+			MemberDao.java (I)
+			MamberDaoImpl.java
+		
+		- com.kitri.member.model.service
+			MemberService.java (I)
+			MemberServiceImpl.java
+		
+		- com.kitri.util
+			DBConnection.java
+			DBClose.java
+			Encoder.java
+		
+	webContent
+		- js : member.js
+		- css : *.css
+		- img : *.jpg, png, gif
+		- admin
+			- member
+				memberlist.jsp
+			
+		- user
+			- member
+				member.jsp
+				registerok.jsp
+				registerfail.jsp
+				idcheck.jsp
+				zipsearch.jsp
+				membermodify.jsp
+			- login
+				login.jsp
+				loginok.jsp
+				loginfail.jsp
+				
+		index.jsp
+
+
+* HttpSession & Cookie
+
+둘다 무언가를 저장 할 수 있는 공간.
+
+Cookie		:	txt파일로 저장	client	>> String ( 보통 사진이랑 유일값 저장 )
+
+HttpSession	:	memory로 저장	sever	>> Object ()
+
+오늘 본 상품
+
+이 물건이 마음에 든다 찜 목록(위시리스트) DB
+
+상세정보까지 남김 장바구니 Dto사용(DB) Object
+
+
+
+
+회원 탈퇴 delete 두번이라 우리가 직접 해야뎀.
+
+t{
+	autocommit안할려면
+	conn.setautocommit(false);
+	
+	d
+	pstmt.exc..();
+	pstmt.close();
+	
+	
+	d
+	pstmt.exc..();
+	pstmt.close();
+	
+	
+	conn.commit();
+}c{
+	conn.rollback();
+}f{
+
+}
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+

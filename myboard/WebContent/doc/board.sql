@@ -145,8 +145,41 @@ create SEQUENCE board_seq START WITH 9;
 commit;
 
 
+/*10~20 불러와라.*/
+SELECT * 
+from(select rownum r, repboard.*
+from repboard
+start with parent_seq = 0
+-- 현재 찾아낸 board_seq의 값의 parent_seq를 찾아라.
+connect by prior board_seq = parent_seq
+order siblings by board_seq desc)
+where r between 10 and 20;
 
 
+
+
+SELECT * 
+from(select rownum r, repboard.*
+from repboard
+start with parent_seq = 0
+-- 현재 찾아낸 board_seq의 값의 parent_seq를 찾아라.
+connect by prior board_seq = parent_seq
+order siblings by board_seq desc)
+where r between 2 and 2;
+
+--  현재페이지 이전 시작페이지 끝페이지 다음
+--    1       x       1       3    0
+--    2       x       1       3    0
+--    3       x       1       3    0    
+--    4       o       4       6    0    
+--    5       o       4       6    0
+--    6       o       4       6    0
+--    7       o       7       9    0    
+--    8       o       7       9    0    
+--    9       o       7       9    0
+--    10      o       10      10   x
+
+select count(*) from repboard;
 
 
 
